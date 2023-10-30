@@ -1,0 +1,22 @@
+<tr class="cart-item">
+  <th scope="row"><%= cart_item.product.name %></th>
+  <td><%= format_price(cart_item.product.price) %> </td>
+  <td>
+    <div class="col-md-2">
+        <div class="input-group">
+          <span class="input-group-btn">
+              <%= button_to reduce_line_item_path(cart_item), class: "quantity-left-minus btn btn-danger btn-number", remote: true do %>
+            <span class="glyphicon glyphicon-minus"></span>
+          <% end %>
+          </span>
+          <span class="col-sm-1 mt-2"><%= cart_item.quantity %></span>
+          <span class="input-group-btn">
+            <%= button_to add_line_item_path(cart_item), class: "quantity-right-plus btn btn-success btn-number", remote: true do %>
+              <span class="glyphicon glyphicon-plus"></span>
+            <% end %>
+          </span>
+      </div>
+    </div>
+  </td>
+  <td><%= format_price(price) %></td>
+</tr>
